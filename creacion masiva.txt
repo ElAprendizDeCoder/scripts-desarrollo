@@ -1,0 +1,74 @@
+copia25sep.sh  exportLlave.gpg  private.key           usuariosS
+[root@infraserver david.rangel]# cat carpetas
+agarciam
+ajaramillo
+brenda.ceron-vepormas
+FondeoBanamex
+homedepotbx
+jesus.lozoya-vepormas
+jorge.nava-monex
+jrhernandez
+luis.carballar-vepormas
+marlene.sanchez-vepormas
+martha.rivera-monex
+martin.islas-vepormas
+mescamilla
+miadelanto
+rgress
+rodrigo.diazdeleong
+sftp-test
+usoperations-collinsongroup
+SvcAcctPRTG
+
+#!/bin/bash
+CARPETAS="/home/david.rangel/carpetas"
+
+
+cd /backupInfra/
+
+for creacion in $(cat $CARPETAS)
+
+do
+        mkdir ./$creacion
+
+done
+[root@infraserver david.rangel]# cat crear2.sh
+#!/bin/bash
+CARPETAS="/home/david.rangel/usuariosS"
+
+
+cd /backupInfra/
+
+for creacion in $(cat $CARPETAS)
+
+do
+        rsync -r -v -u -a /home/$creacion /backupInfra/$creacion/
+
+done
+
+
+
+admin-infra:x:1002:1002::/home/admin-infra:/bin/bash
+ivan.vazquez:x:1004:1004::/home/ivan.vazquez:/bin/MySecureShell
+miguel.parra:x:1005:1005::/home/miguel.parra:/bin/MySecureShell
+mlopez:x:1006:1007:Usuario mayor privilegios de navegacion entre archivos:/home/mlopez:/bin/MySecureShell
+FondeoMifel:x:1010:1011::/home/FondeoMifel:/bin/MySecureShell
+FondeoBanamex:x:1011:1012::/home/FondeoBanamex:/bin/MySecureShell
+FondeoBancrea:x:1012:1013::/home/FondeoBancrea:/bin/MySecureShell
+FondeoCibanco:x:1013:1014::/home/FondeoCibanco:/bin/MySecureShell
+FondeoMonex:x:1014:1015::/home/FondeoMonex:/bin/MySecureShell
+FondeoMultiva:x:1015:1016::/home/FondeoMultiva:/bin/MySecureShell
+FondeoVepormas:x:1016:1017::/home/FondeoVepormas:/bin/MySecureShell
+oxxofemsa:x:1017:1018::/home/oxxofemsa:/bin/MySecureShell
+walmartbx:x:1018:1019::/home/walmartbx:/bin/MySecureShell
+jalvarez:x:1019:1020::/home/jalvarez:/bin/MySecureShell
+ConsolidacionRechazos:x:1020:1021::/home/ConsolidacionRechazos:/bin/MySecureShell
+despensat:x:1021:1022::/home/despensat:/bin/MySecureShell
+gasofacil:x:1022:1023::/home/gasofacil:/bin/MySecureShell
+AdeA:x:1023:1024::/home/AdeA:/bin/MySecureShell
+FondeoAdmin:x:1025:1026:Usuario administrador llave:/home/FondeoAdmin:/bin/bash
+rodrigo.diazdeleong:x:1026:1027::/home/rodrigo.diazdeleong:/bin/bash
+team-infra:x:1027:1028::/home/team-infra:/bin/bash
+demo1:x:1028:1029::/home/demo1:/bin/bash
+
+
